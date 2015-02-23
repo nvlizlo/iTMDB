@@ -24,6 +24,11 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 
 @implementation SearchForMoviesViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.movies.count;
 }
@@ -37,8 +42,13 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
     cell.textLabel.text = self.movies[indexPath.row][@"original_title"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Release Date: %@", self.movies[indexPath.row][@"release_date"]];
     cell.imageView.image = self.images[indexPath.row];
-    cell.movieId = self.movies[indexPath.row][@"id"];
+    cell.movieId = [NSString stringWithFormat:@"%@", self.movies[indexPath.row][@"id"]];
     return cell;
+}
+
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
+    
+    return YES;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {

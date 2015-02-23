@@ -29,6 +29,7 @@ NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
     if ([self.tabBarItem.title isEqualToString:@"Top"]) {
         [self requestForTypeOfMovies:@"top_rated"];
     }

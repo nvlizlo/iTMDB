@@ -54,8 +54,13 @@ NSString *apIkey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
                                       dispatch_async(dispatch_get_main_queue(), ^{
                                           self.movieDescription.text = d[@"overview"];
                                           self.movieName.text = d[@"original_title"];
-                                          self.genreAndDate.text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
+                                          if ([d[@"genres"] count]) {
+                                              self.genreAndDate.text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
                                                                     d[@"genres"][0][@"name"], d[@"release_date"]];
+                                          } else {
+                                              self.genreAndDate.text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
+                                                                        @"none", d[@"release_date"]];
+                                          }
                                           self.popularityAndBudget.text = [NSString stringWithFormat:@"Popularity: %@\nBudget: %@ $",
                                                                       d[@"popularity"], d[@"budget"]];
                                           if (imageData != nil) {

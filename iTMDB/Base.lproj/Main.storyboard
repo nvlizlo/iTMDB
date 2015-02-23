@@ -117,7 +117,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.2156862745" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <segue destination="WoX-yg-j3E" kind="push" id="GFM-pC-T18"/>
+                                            <segue destination="WoX-yg-j3E" kind="push" identifier="FromSearch" id="GFM-pC-T18"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -280,6 +280,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="za3-0x-5gk"/>
-        <segue reference="juD-A7-Ts1"/>
+        <segue reference="GFM-pC-T18"/>
     </inferredMetricsTieBreakers>
 </document>
