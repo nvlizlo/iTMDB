@@ -54,7 +54,7 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     self.movies = nil;
     self.images = nil;
-    [self requestForTypeOfMovies:searchBar.text];
+    [self requestForNameOfMovies:searchBar.text];
     [searchBar resignFirstResponder];
 }
 
@@ -62,8 +62,8 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
     [self.searchBar resignFirstResponder];
 }
 
-- (void)requestForTypeOfMovies:(NSString *)type {
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.themoviedb.org/3/search/movie?api_key=%@&query=%@", apikey, type]];
+- (void)requestForNameOfMovies:(NSString *)name {
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.themoviedb.org/3/search/movie?api_key=%@&query=%@", apikey, name]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     [request setHTTPMethod:@"GET"];
