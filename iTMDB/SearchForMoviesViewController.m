@@ -47,7 +47,6 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
-    
     return YES;
 }
 
@@ -88,10 +87,8 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
                                       dispatch_async(dispatch_get_main_queue(), ^{
                                           [self.tableView reloadData];
                                       });
-                                      
                                   }];
     [task resume];
-    
 }
 
 - (void)cycleForImages:(NSArray *)array {
@@ -107,7 +104,7 @@ NSString *apikey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
             [mutable addObject:[UIImage imageNamed:@"question_mark"]];
         }
     }
-    self.images = mutable;
+    self.images = [mutable mutableCopy];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

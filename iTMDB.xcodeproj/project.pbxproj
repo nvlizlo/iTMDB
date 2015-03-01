@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD6BA5B11AA31DE300E6D336 /* MovieTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BA5B01AA31DE300E6D336 /* MovieTabBar.m */; };
 		CDBB7A7A1A98CEB500D90A0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A791A98CEB500D90A0D /* main.m */; };
 		CDBB7A7D1A98CEB500D90A0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A7C1A98CEB500D90A0D /* AppDelegate.m */; };
 		CDBB7A831A98CEB500D90A0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDBB7A811A98CEB500D90A0D /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CD6BA5AF1AA31DE300E6D336 /* MovieTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTabBar.h; sourceTree = "<group>"; };
+		CD6BA5B01AA31DE300E6D336 /* MovieTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTabBar.m; sourceTree = "<group>"; };
 		CDBB7A741A98CEB400D90A0D /* iTMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBB7A781A98CEB500D90A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDBB7A791A98CEB500D90A0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			children = (
 				CDBB7AAE1A9A7BDF00D90A0D /* MovieTableViewCell.h */,
 				CDBB7AAF1A9A7BDF00D90A0D /* MovieTableViewCell.m */,
+				CD6BA5AF1AA31DE300E6D336 /* MovieTabBar.h */,
+				CD6BA5B01AA31DE300E6D336 /* MovieTabBar.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				CDBB7AA71A98FEA700D90A0D /* TabBarViewController.m in Sources */,
 				CDBB7A9F1A98D68500D90A0D /* MoviesViewController.m in Sources */,
 				CDBB7A7D1A98CEB500D90A0D /* AppDelegate.m in Sources */,
+				CD6BA5B11AA31DE300E6D336 /* MovieTabBar.m in Sources */,
 				CDBB7AB01A9A7BDF00D90A0D /* MovieTableViewCell.m in Sources */,
 				CDBB7A7A1A98CEB500D90A0D /* main.m in Sources */,
 				CDBB7AB51A9A8BE600D90A0D /* DetailViewController.m in Sources */,
@@ -452,6 +458,7 @@
 				CDBB7A991A98CEB500D90A0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDBB7A9A1A98CEB500D90A0D /* Build configuration list for PBXNativeTarget "iTMDBTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +467,7 @@
 				CDBB7A9C1A98CEB500D90A0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

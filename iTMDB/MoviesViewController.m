@@ -22,8 +22,7 @@ NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 
 @implementation MoviesViewController
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
@@ -32,14 +31,11 @@ NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
     self.navigationController.navigationBarHidden = YES;
     if ([self.tabBarItem.title isEqualToString:@"Top"]) {
         [self requestForTypeOfMovies:@"top_rated"];
-    }
-    else if ([self.tabBarItem.title isEqualToString:@"Popular"]) {
+    } else if ([self.tabBarItem.title isEqualToString:@"Popular"]) {
         [self requestForTypeOfMovies:@"popular"];
-    }
-    else if ([self.tabBarItem.title isEqualToString:@"Upcoming"]) {
+    } else if ([self.tabBarItem.title isEqualToString:@"Upcoming"]) {
         [self requestForTypeOfMovies:@"upcoming"];
     }
-    
 }
 
 - (void)requestForTypeOfMovies:(NSString *)type {
@@ -75,8 +71,7 @@ NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 
 - (void)cycleForImages:(NSArray *)array {
     NSMutableArray *mutable = [[NSMutableArray alloc] init];
-    for (NSDictionary *d in array)
-    {
+    for (NSDictionary *d in array) {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://image.tmdb.org/t/p/w92%@", d[@"poster_path"]]];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
@@ -86,7 +81,7 @@ NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
             [mutable addObject:[UIImage imageNamed:@"question_mark"]];
         }
     }
-    self.images = [[NSArray alloc] initWithArray:mutable];
+    self.images = [mutable copy];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
