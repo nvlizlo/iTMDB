@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CD6BA5B11AA31DE300E6D336 /* MovieTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BA5B01AA31DE300E6D336 /* MovieTabBar.m */; };
+		CD6BA5B81AA3923500E6D336 /* MovieStore.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BA5B71AA3923500E6D336 /* MovieStore.m */; };
 		CDBB7A7A1A98CEB500D90A0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A791A98CEB500D90A0D /* main.m */; };
 		CDBB7A7D1A98CEB500D90A0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A7C1A98CEB500D90A0D /* AppDelegate.m */; };
 		CDBB7A831A98CEB500D90A0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDBB7A811A98CEB500D90A0D /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		CD6BA5AF1AA31DE300E6D336 /* MovieTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTabBar.h; sourceTree = "<group>"; };
 		CD6BA5B01AA31DE300E6D336 /* MovieTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTabBar.m; sourceTree = "<group>"; };
+		CD6BA5B61AA3923500E6D336 /* MovieStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieStore.h; sourceTree = "<group>"; };
+		CD6BA5B71AA3923500E6D336 /* MovieStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieStore.m; sourceTree = "<group>"; };
 		CDBB7A741A98CEB400D90A0D /* iTMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDBB7A781A98CEB500D90A0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDBB7A791A98CEB500D90A0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -75,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CD6BA5B51AA380E000E6D336 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD6BA5B61AA3923500E6D336 /* MovieStore.h */,
+				CD6BA5B71AA3923500E6D336 /* MovieStore.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		CDBB7A6B1A98CEB400D90A0D = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 		CDBB7A761A98CEB400D90A0D /* iTMDB */ = {
 			isa = PBXGroup;
 			children = (
+				CD6BA5B51AA380E000E6D336 /* Model */,
 				CDBB7AB21A9A7BFF00D90A0D /* View */,
 				CDBB7AB11A9A7BE700D90A0D /* Controllers */,
 				CDBB7A811A98CEB500D90A0D /* Main.storyboard */,
@@ -266,6 +279,7 @@
 				CDBB7A7D1A98CEB500D90A0D /* AppDelegate.m in Sources */,
 				CD6BA5B11AA31DE300E6D336 /* MovieTabBar.m in Sources */,
 				CDBB7AB01A9A7BDF00D90A0D /* MovieTableViewCell.m in Sources */,
+				CD6BA5B81AA3923500E6D336 /* MovieStore.m in Sources */,
 				CDBB7A7A1A98CEB500D90A0D /* main.m in Sources */,
 				CDBB7AB51A9A8BE600D90A0D /* DetailViewController.m in Sources */,
 			);

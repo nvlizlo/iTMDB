@@ -9,79 +9,35 @@
 #import "MoviesViewController.h"
 #import "MovieTableViewCell.h"
 #import "DetailViewController.h"
-
-NSString *apiKey = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
+#import "MovieStore.h"
 
 @interface MoviesViewController ()
 
-@property (nonatomic, copy) NSArray *movies;
-@property (nonatomic, copy) NSArray *images;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic , copy) NSString *type;
+@property (nonatomic, strong) MovieStore *store;
 
 @end
 
 @implementation MoviesViewController
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (MovieStore *)store {
+    if (!_store) {
+        _store = [[MovieStore alloc] init];
+    }
+    return _store;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
     if ([self.tabBarItem.title isEqualToString:@"Top"]) {
-        [self requestForTypeOfMovies:@"top_rated"];
+        self.type = @"top_rated";
     } else if ([self.tabBarItem.title isEqualToString:@"Popular"]) {
-        [self requestForTypeOfMovies:@"popular"];
+        self.type = @"popular";
     } else if ([self.tabBarItem.title isEqualToString:@"Upcoming"]) {
-        [self requestForTypeOfMovies:@"upcoming"];
+        self.type = @"upcoming";
     }
-}
-
-- (void)requestForTypeOfMovies:(NSString *)type {
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.themoviedb.org/3/movie/%@?api_key=%@", type, apiKey]];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
-    [request setHTTPMethod:@"GET"];
-    
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                            completionHandler:
-                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
-                                      
-                                      NSDictionary *d = [NSJSONSerialization JSONObjectWithData:data
-                                                                                        options:NSJSONReadingAllowFragments
-                                                                                          error:&error];
-                                      if (error) {
-                                          NSLog(@"%@", error.description);
-                                          return;
-                                      }
-                                      
-                                      self.movies = d[@"results"];
-                                      [self cycleForImages:self.movies];
-                                      
-                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                          [self.tableView reloadData];
-                                      });
-                                  }];
-    [task resume];
-}
-
-- (void)cycleForImages:(NSArray *)array {
-    NSMutableArray *mutable = [[NSMutableArray alloc] init];
-    for (NSDictionary *d in array) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://image.tmdb.org/t/p/w92%@", d[@"poster_path"]]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        if (image != nil) {
-            [mutable addObject:image];
-        } else {
-            [mutable addObject:[UIImage imageNamed:@"question_mark"]];
-        }
-    }
-    self.images = [mutable copy];
+    [[MovieStore sharedStore] requestForTypeOfMovies:self.type viewController:self];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

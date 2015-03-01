@@ -11,5 +11,10 @@
 @interface DetailViewController : UIViewController
 
 @property (nonatomic) NSInteger movieId;
+@property (weak, nonatomic) IBOutlet UIImageView *moviePicture;
+@property (weak, nonatomic) IBOutlet UILabel *movieName;
+@property (weak, nonatomic) IBOutlet UILabel *genreAndDate;
+@property (weak, nonatomic) IBOutlet UILabel *popularityAndBudget;
+@property (weak, nonatomic) IBOutlet UITextView *movieDescription;
 
 @end

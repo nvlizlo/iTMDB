@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface MoviesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, copy) NSArray *movies;
+@property (nonatomic, copy) NSArray *images;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
