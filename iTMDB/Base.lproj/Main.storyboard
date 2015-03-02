@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="-203" y="-368"/>
         </scene>
-        <!--Tab Bar View Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="8WW-a5-rjA">
             <objects>
-                <tabBarController id="YxL-9A-fV1" customClass="TabBarViewController" sceneMemberID="viewController">
+                <tabBarController id="YxL-9A-fV1" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cMQ-bq-b6j"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>

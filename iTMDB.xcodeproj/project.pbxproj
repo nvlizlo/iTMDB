@@ -16,7 +16,6 @@
 		CDBB7A881A98CEB500D90A0D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBB7A861A98CEB500D90A0D /* LaunchScreen.xib */; };
 		CDBB7A941A98CEB500D90A0D /* iTMDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A931A98CEB500D90A0D /* iTMDBTests.m */; };
 		CDBB7A9F1A98D68500D90A0D /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7A9E1A98D68500D90A0D /* MoviesViewController.m */; };
-		CDBB7AA71A98FEA700D90A0D /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7AA61A98FEA700D90A0D /* TabBarViewController.m */; };
 		CDBB7AAD1A9A6F2E00D90A0D /* SearchForMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7AAC1A9A6F2E00D90A0D /* SearchForMoviesViewController.m */; };
 		CDBB7AB01A9A7BDF00D90A0D /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7AAF1A9A7BDF00D90A0D /* MovieTableViewCell.m */; };
 		CDBB7AB51A9A8BE600D90A0D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBB7AB41A9A8BE600D90A0D /* DetailViewController.m */; };
@@ -50,8 +49,6 @@
 		CDBB7A931A98CEB500D90A0D /* iTMDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTMDBTests.m; sourceTree = "<group>"; };
 		CDBB7A9D1A98D68500D90A0D /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
 		CDBB7A9E1A98D68500D90A0D /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
-		CDBB7AA51A98FEA700D90A0D /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		CDBB7AA61A98FEA700D90A0D /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		CDBB7AAB1A9A6F2E00D90A0D /* SearchForMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchForMoviesViewController.h; sourceTree = "<group>"; };
 		CDBB7AAC1A9A6F2E00D90A0D /* SearchForMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchForMoviesViewController.m; sourceTree = "<group>"; };
 		CDBB7AAE1A9A7BDF00D90A0D /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
@@ -111,7 +108,6 @@
 				CD6BA5B51AA380E000E6D336 /* Model */,
 				CDBB7AB21A9A7BFF00D90A0D /* View */,
 				CDBB7AB11A9A7BE700D90A0D /* Controllers */,
-				CDBB7A811A98CEB500D90A0D /* Main.storyboard */,
 				CDBB7A771A98CEB400D90A0D /* Supporting Files */,
 			);
 			path = iTMDB;
@@ -120,6 +116,7 @@
 		CDBB7A771A98CEB400D90A0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDBB7A811A98CEB500D90A0D /* Main.storyboard */,
 				CDBB7A7B1A98CEB500D90A0D /* AppDelegate.h */,
 				CDBB7A7C1A98CEB500D90A0D /* AppDelegate.m */,
 				CDBB7A841A98CEB500D90A0D /* Images.xcassets */,
@@ -150,8 +147,6 @@
 		CDBB7AB11A9A7BE700D90A0D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CDBB7AA51A98FEA700D90A0D /* TabBarViewController.h */,
-				CDBB7AA61A98FEA700D90A0D /* TabBarViewController.m */,
 				CDBB7A9D1A98D68500D90A0D /* MoviesViewController.h */,
 				CDBB7A9E1A98D68500D90A0D /* MoviesViewController.m */,
 				CDBB7AAB1A9A6F2E00D90A0D /* SearchForMoviesViewController.h */,
@@ -274,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDBB7AAD1A9A6F2E00D90A0D /* SearchForMoviesViewController.m in Sources */,
-				CDBB7AA71A98FEA700D90A0D /* TabBarViewController.m in Sources */,
 				CDBB7A9F1A98D68500D90A0D /* MoviesViewController.m in Sources */,
 				CDBB7A7D1A98CEB500D90A0D /* AppDelegate.m in Sources */,
 				CD6BA5B11AA31DE300E6D336 /* MovieTabBar.m in Sources */,

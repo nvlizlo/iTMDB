@@ -45,14 +45,7 @@ NSString *APIKEY = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
 }
 
 - (void)requestForTypeOfMovies:(NSString *)type viewController:(id)controller {
-    NSURL *URL;
-    if ([controller isKindOfClass:[MoviesViewController class]]) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:listOfMoviesURL, type, APIKEY]];
-    } else if ([controller isKindOfClass:[SearchForMoviesViewController class]]) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:searchURL, APIKEY, type]];
-    } else {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:detailURL, (long)[controller movieId], APIKEY]];
-    }
+    NSURL *URL = [self chooseUrlFromController:controller forType:type];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     [request setHTTPMethod:@"GET"];
@@ -72,28 +65,7 @@ NSString *APIKEY = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
                                           return;
                                       }
                                       if ([controller isKindOfClass:[DetailViewController class]]) {
-                                          NSData *imageData = [NSData dataWithContentsOfURL:
-                                                               [NSURL URLWithString:
-                                                                [NSString stringWithFormat:@"http://image.tmdb.org/t/p/w500%@",
-                                                                 d[@"backdrop_path"]]]];
-                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                              [controller movieDescription].text = d[@"overview"];
-                                              [controller movieName].text = d[@"original_title"];
-                                              if ([d[@"genres"] count]) {
-                                                  [controller genreAndDate].text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
-                                                                            d[@"genres"][0][@"name"], d[@"release_date"]];
-                                              } else {
-                                                  [controller genreAndDate].text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
-                                                                            @"none", d[@"release_date"]];
-                                              }
-                                              [controller popularityAndBudget].text = [NSString stringWithFormat:@"Popularity: %@\nBudget: %@ $",
-                                                                               d[@"popularity"], d[@"budget"]];
-                                              if (imageData != nil) {
-                                                  [controller moviePicture].image = [UIImage imageWithData:imageData];
-                                              } else {
-                                                  [controller moviePicture].image = [UIImage imageNamed:@"question_mark"];
-                                              }
-                                          });
+                                          [self fillDetailInfo:controller withDictionary:d];
                                         
                                       } else {
                                           [controller setMovies: d[@"results"]];
@@ -121,6 +93,42 @@ NSString *APIKEY = @"84d1fc29ee4c082d407b59ba9c7ccc3e";
         }
     }
     controller.images = [mutable copy];
+}
+
+- (void)fillDetailInfo:(id)controller withDictionary:(NSDictionary *)d {
+    NSData *imageData = [NSData dataWithContentsOfURL:
+                         [NSURL URLWithString:
+                          [NSString stringWithFormat:@"http://image.tmdb.org/t/p/w500%@",
+                           d[@"backdrop_path"]]]];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [controller movieDescription].text = d[@"overview"];
+        [controller movieName].text = d[@"original_title"];
+        if ([d[@"genres"] count]) {
+            [controller genreAndDate].text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
+                                              d[@"genres"][0][@"name"], d[@"release_date"]];
+        } else {
+            [controller genreAndDate].text = [NSString stringWithFormat:@"Genre: %@\nRelease Date: %@",
+                                              @"none", d[@"release_date"]];
+        }
+        [controller popularityAndBudget].text = [NSString stringWithFormat:@"Popularity: %@\nBudget: %@ $",
+                                                 d[@"popularity"], d[@"budget"]];
+        if (imageData != nil) {
+            [controller moviePicture].image = [UIImage imageWithData:imageData];
+        } else {
+            [controller moviePicture].image = [UIImage imageNamed:@"question_mark"];
+        }
+    });
+
+}
+
+- (NSURL *)chooseUrlFromController:(id)controller forType:(NSString *)type {
+    if ([controller isKindOfClass:[MoviesViewController class]]) {
+        return [NSURL URLWithString:[NSString stringWithFormat:listOfMoviesURL, type, APIKEY]];
+    } else if ([controller isKindOfClass:[SearchForMoviesViewController class]]) {
+        return [NSURL URLWithString:[NSString stringWithFormat:searchURL, APIKEY, type]];
+    } else {
+        return [NSURL URLWithString:[NSString stringWithFormat:detailURL, (long)[controller movieId], APIKEY]];
+    }
 }
 
 @end
